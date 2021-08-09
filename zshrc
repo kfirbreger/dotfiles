@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cubec"
+ZSH_THEME="cubec-nok"
 
 # Example aliases
 # alias zshconfig="vim ~/.zshrc"
@@ -29,7 +29,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby docker lighthouse)
-plugins=(osx git python django kubectl node npm)
+plugins=(osx git python django docker node)
 
 
 # Customize to your needs...
@@ -86,11 +86,15 @@ function brewdeps() {
 }
 #---------------------------------------------------------------------
 # Sourceing kube ps1. use kubeon and kubeoff to turn prompt on and off
-source $HOME/develop/servers/kube-ps1/kube-ps1.sh
+# source $HOME/develop/servers/kube-ps1/kube-ps1.sh
+
+# autocomplete
+autoload -Uz compinit && compinit
+autoload -U +X bashcompinit && bashcompinit
+
+# complete -o nospace -C /Users/kfir/klanten/kpn/vault/vault vault
+
 # Adding oh-my
 source $ZSH/oh-my-zsh.sh
 
-
-autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /Users/kfir/klanten/kpn/vault/vault vault
 
